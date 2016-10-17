@@ -3,11 +3,11 @@ public void setup()
 {
 	//size (500, 500);
 	Cow c = new Cow ("cow", "moo");
-	Chick ugly = new Chick ("chick", "chirp");
 	Pig p =  new Pig ("pig", "oink");
+	Chick h = new Chick ("chick", "chirp");
 	System.out.println(c.getType() + " goes " + c.getSound());
-	//Sysyem.out.println(ugly.getType() + " goes " + ugly.getSound());
 	System.out.println(p.getType() + " goes " + p.getSound());
+	System.out.println(h.getType() + " goes " + h.getSound());
 }
 
 class Cow implements Animal
@@ -21,8 +21,8 @@ class Cow implements Animal
 	}
 	public Cow()
 	{
-		myType = "cow";
-		mySound = "moo";
+		myType = "unknown";
+		mySound = "unknown";
 	}
 	public String getSound()
 	{
@@ -45,8 +45,8 @@ class Chick implements Animal
 	}
 	public Chick()
 	{
-		myType = "chick";
-		mySound = "chirp";
+		myType = "unknown";
+		mySound = "unknown";
 	}
 	public String getSound()
 	{
@@ -68,8 +68,8 @@ class Pig implements Animal
 	}
 	public Pig()
 	{
-		myType = "pig";
-		mySound = "oink";
+		myType = "unknown";
+		mySound = "unknown";
 	}
 	public String getSound()
 	{
@@ -79,10 +79,6 @@ class Pig implements Animal
 	{
 		return myType;
 	}
-}
-class Farm
-{
-
 }
 interface Animal
 {
