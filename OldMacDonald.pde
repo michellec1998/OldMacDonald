@@ -4,18 +4,19 @@ public void setup()
 	//size (500, 500);
 	Cow c = new Cow ("cow", "moo");
 	Pig p =  new Pig ("pig", "oink");
-	Chick h = new Chick ("chick", "chirp");
-	Farm cool = new Farm();
+	Chick h = new Chick ("chick", "cheep", "chirp");
+	Farm aBunchOfAnimals = new Farm();
 	System.out.println(c.getType() + " goes " + c.getSound());
 	System.out.println(p.getType() + " goes " + p.getSound());
 	System.out.println(h.getType() + " goes " + h.getSound());
-	System.out.println(cool.getType() + " goes" + cool.getSound());
+	aBunchOfAnimals.animalSounds();
 }
 
 class Cow implements Animal
 {
 	private String myType;
 	private String mySound;
+
 	public Cow(String type, String sound)
 	{
 		myType = type;
@@ -36,29 +37,37 @@ class Cow implements Animal
 	}
 
 }
+
 class Chick implements Animal
 {
 	private String myType;
-	private String mySound;
-	public Chick(String type, String sound)
+  private String mySound1;
+  private String mySound2;
+
+	public Chick(String type, String sound1, String sound2)
 	{
 		myType = type;
-		mySound = sound;
+		mySound1 = sound1;
+    mySound2 = sound2;
 	}
 	public Chick()
 	{
 		myType = "unknown";
-		mySound = "unknown";
-	}
-	public String getSound()
-	{
-		return mySound;
+    mySound1 = "unkown";
+    mySound2 = "unknown";
 	}
 	public String getType()
 	{
 		return myType;
-	}
+  }
+  public String getSound () 
+  { 
+  if (mySound2 == "*") return mySound1; 
+  if (Math.random () >= 0.5) return mySound2; 
+  return mySound1; 
+  } 
 }
+
 class Pig implements Animal
 {
 	private String myType;
@@ -86,22 +95,4 @@ interface Animal
 {
 	public String getSound();
 	public String getType();
-}
-class Farm
-{
-	private Animal[] aBunchOfAnimals = new Animal[3];
-
-	public Farm()
-	{
-		aBunchOfAnimals[0] = new Cow("cow", "moo");
-		aBunchOfAnimals[1] = new Pig("pig", "oink");
-		aBunchOfAnimals[2] = new Chick("chick", "cluck");
-	}
-	public void animalSounds()
-	{
-		for (int nI = 0; nI < aBunchOfAnimals.length; nI++)
-		{
-			System.out.println(aBunchOfAnimals[nI].getType() + " goes " + aBunchOfAnimals[nI].getSound());
-		}
-	}
 }
