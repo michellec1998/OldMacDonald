@@ -22,7 +22,7 @@ class Chick implements Animal
   }
   public String getSound () 
   { 
-  if (mySound2 == "*") return mySound1; 
+  if (mySound2 == "sound2") return mySound1; 
   if (Math.random () >= 0.5) return mySound2; 
   return mySound1; 
   } 
